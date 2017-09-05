@@ -1,0 +1,5 @@
+DEBUG = True
+DB_NAME = "cms"
+DB_HOST = "127.0.0.1:27017"
+CACHE_HOST = "127.0.0.1:6379"
+APP_PORT = "8080"
