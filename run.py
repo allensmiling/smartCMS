@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 
 
+import os.path
 import tornado.ioloop
 import tornado.web
 import tornado.httpserver
@@ -10,10 +11,12 @@ from settings import *
 from urls import urls
 
 define("port", default=APP_PORT, type=int, help="run app on specific port")
+t = os.path.join(os.getcwd(), "template")
+s = os.path.join(os.getcwd(), "static")
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
-    app = tornado.web.Application(handlers = urls)
+    app = tornado.web.Application(handlers = urls, template_path = t, static_path = s)
     if DEBUG:
         app.listen(options.port)
     else:
