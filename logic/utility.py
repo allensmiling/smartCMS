@@ -3,6 +3,11 @@
 
 import tornado.web
 
-class MainHandler(tornado.web.RequestHandler):
+
+class RootHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("index.htm",one="smart",two="CMS")
+        self.render("root.htm",one="smart",two="CMS")
+
+class AdminHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("admin.htm",one="smart",two="CMS")
