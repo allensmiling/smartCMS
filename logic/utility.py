@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 
 import tornado.web
+import xml.etree.cElementTree as ET
 
 
 class RootHandler(tornado.web.RequestHandler):
@@ -10,4 +11,8 @@ class RootHandler(tornado.web.RequestHandler):
 
 class AdminHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("admin.htm",one="smart",two="CMS")
+        t = ET.parse('logic/fonts.xml')
+        d = {}
+        for i in t.findall('map'):
+            d[i.get('code')[2:]] = i.get('name')
+        self.render("admin.htm",d=d)

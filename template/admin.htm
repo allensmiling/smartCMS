@@ -12,4 +12,7 @@
 	    <div class="uk-width-1-1 uk-block uk-block-muted"><div class="uk-container"><h4>后台管理登录</h4></div></div>
 	  </div>
 
+	  {% for k,v in d.items() %}
+	  <i class="uk-icon-small uk-icon-{{ k }}"></i> {{ k }}  <br/>
+          {% end %}
 {% end %}
