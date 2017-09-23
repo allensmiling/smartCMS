@@ -1,15 +1,24 @@
 #!/usr/bin/env python3.6
 # -*- coding:utf-8 -*-
 
-import tornado.web
+
+from tornado.web import RequestHandler
 import xml.etree.cElementTree as ET
+from .cache import *
+from .auth import auth
 
 
-class RootHandler(tornado.web.RequestHandler):
+class RootHandler(RequestHandler):
+    @auth
     def get(self):
-        self.render("root.htm",one="smart",two="CMS")
+        self.render("root.htm")
 
-class AdminHandler(tornado.web.RequestHandler):
+class LoginHandler(RequestHandler):
+    def get(self):
+        self.render("login.htm")
+
+class AdminHandler(RequestHandler):
+    @auth
     def get(self):
         t = ET.parse('logic/fonts.xml')
         d = {}

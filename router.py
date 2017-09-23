@@ -6,4 +6,5 @@ from logic.utility import *
 urls = [
 (r"/", RootHandler),
 (r"/admin", AdminHandler),
+(r"/login", LoginHandler),
 ]
