@@ -9,7 +9,6 @@ from .auth import auth
 
 
 class RootHandler(RequestHandler):
-    @auth
     def get(self):
         self.render("root.htm")
 
@@ -20,8 +19,14 @@ class LoginHandler(RequestHandler):
 class AdminHandler(RequestHandler):
     @auth
     def get(self):
-        t = ET.parse('logic/fonts.xml')
-        d = {}
-        for i in t.findall('map'):
-            d[i.get('code')[2:]] = i.get('name')
-        self.render("admin.htm",d=d)
+        self.render("admin.htm")
+
+
+
+
+
+#        t = ET.parse('logic/fonts.xml')
+#        d = {}
+#        for i in t.findall('map'):
+#            d[i.get('code')[2:]] = i.get('name')
+#        self.render("admin.htm",d=d)
