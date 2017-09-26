@@ -7,4 +7,5 @@ urls = [
 (r"/", RootHandler),
 (r"/admin", AdminHandler),
 (r"/login", LoginHandler),
+(r"/reg", RegHandler),
 ]

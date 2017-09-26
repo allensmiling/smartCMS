@@ -16,6 +16,15 @@ class LoginHandler(RequestHandler):
     def get(self):
         self.render("login.htm")
 
+    def post(self):
+        u = self.get_argument("username")
+        p = self.get_argument("password")
+        self.render("root.htm", u = u, p = p)
+
+class RegHandler(RequestHandler):
+    def get(self):
+        self.render("reg.htm")
+
 class AdminHandler(RequestHandler):
     @auth
     def get(self):

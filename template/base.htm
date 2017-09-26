@@ -12,6 +12,14 @@
                 <script src="../static/ui/js/uikit.min.js"></script>
 	</head>
         <body>
-        {% block body %}{% end %}
+	  <div class="uk-grid">
+	    <div class="uk-width-1-1">
+	      <div class="uk-panel uk-panel-box uk-panel-box-primary uk-width-medium-1-1">
+		<span class="uk-panel-badge uk-badge uk-badge-info">
+		  <a href="" class="uk-icon-hover uk-icon-cloud"></a> SMARTBOW</span>
+	      </div>
+	    </div>
+            {% block body %}{% end %}
+	  </div>
 	</body>
 </html>
